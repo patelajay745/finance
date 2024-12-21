@@ -97,7 +97,7 @@ export const testimonialsData = [
   {
     name: "Priya Sharma",
     role: "Graphic Designer",
-    image: "https://randomuser.me/api/portraits/women/80.jpg",
+    image: "https://randomuser.me/api/portraits/women/40.jpg",
     quote:
       "The automated expense tracking feature is a game-changer. It's like having a personal finance assistant that saves me so much time.",
   },
