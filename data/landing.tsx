@@ -89,22 +89,22 @@ export const howItWorksData = [
 export const testimonialsData = [
   {
     name: "Raj Patel",
-    role: "Entrepreneur",
-    image: "https://randomuser.me/api/portraits/men/76.jpg",
+    designation: "Entrepreneur",
+    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     quote:
       "PocketPlanner has revolutionized my financial management. The insights are spot on, helping me cut costs and grow my business.",
   },
   {
     name: "Priya Sharma",
-    role: "Graphic Designer",
-    image: "https://randomuser.me/api/portraits/women/40.jpg",
+    designation: "Graphic Designer",
+    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     quote:
       "The automated expense tracking feature is a game-changer. It's like having a personal finance assistant that saves me so much time.",
   },
   {
     name: "Arjun Singh",
-    role: "Investment Consultant",
-    image: "https://randomuser.me/api/portraits/men/77.jpg",
+    designation: "Investment Consultant",
+    src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     quote:
       "I suggest PocketPlanner to everyone I consult. Its real-time tracking and global insight features are invaluable for managing diverse portfolios.",
   },

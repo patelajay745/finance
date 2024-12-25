@@ -1,6 +1,12 @@
 import HeroSection from "@/components/hero";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { Card, CardContent } from "@/components/ui/card";
-import { featuresData, howItWorksData, statsData } from "@/data/landing";
+import {
+  featuresData,
+  howItWorksData,
+  statsData,
+  testimonialsData,
+} from "@/data/landing";
 
 export default function Home() {
   return (
@@ -55,6 +61,19 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 ">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            What our Users Say
+          </h2>
+
+          <AnimatedTestimonials
+            autoplay={true}
+            testimonials={testimonialsData}
+          />
         </div>
       </section>
     </div>
