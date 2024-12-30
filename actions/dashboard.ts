@@ -67,3 +67,19 @@ const serializeTransaction = (obj: any) => {
     serialized.balance = obj.balance.toNumber();
   }
 };
+
+export const getUserAccounts = async () => {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthrized");
+
+  const user = await db.user.findUnique({
+    where: {
+      clearkUserId: userId,
+    },
+  });
+
+  if (!user) throw new Error("User not found");
+
+
+  
+};
