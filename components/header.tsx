@@ -5,6 +5,7 @@ import React from "react";
 import { Button } from "./ui/button";
 import { LayoutDashboard, PenBox } from "lucide-react";
 import { checkUser } from "@/lib/auth-service";
+import { ModeToggle } from "./modeToggle";
 
 const Header = async () => {
   await checkUser();
@@ -47,6 +48,7 @@ const Header = async () => {
           <SignedIn>
             <UserButton appearance={{ elements: { avatarBox: "w-10 h-10" } }} />
           </SignedIn>
+          {/* <ModeToggle />  enable this for theme toggle*/}
         </div>
       </nav>
     </div>

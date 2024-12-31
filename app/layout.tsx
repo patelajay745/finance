@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
+// import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,12 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={`${inter.className}`}>
+          {/* <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          > */}
           <Header />
           <main className="min-h-screen"> {children}</main>
           <Toaster richColors />
@@ -29,6 +36,7 @@ export default function RootLayout({
               <p>Made by Ajay Patel</p>
             </div>
           </footer>
+          {/* </ThemeProvider> */}
         </body>
       </html>
     </ClerkProvider>

@@ -1,5 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import { db } from "./prisma";
+import { User } from "@prisma/client";
 
 export const getAuthenicatedUser = async (): Promise<User> => {
   const { userId } = await auth();
