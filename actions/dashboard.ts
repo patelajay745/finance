@@ -79,7 +79,16 @@ export const getUserAccounts = async () => {
   });
 
   if (!user) throw new Error("User not found");
+};
+export const getUserAccounts = async () => {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthrized");
 
+  const user = await db.user.findUnique({
+    where: {
+      clearkUserId: userId,
+    },
+  });
 
-  
+  if (!user) throw new Error("User not found");
 };
