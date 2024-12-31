@@ -5,7 +5,6 @@ import React from "react";
 import { Button } from "./ui/button";
 import { LayoutDashboard, PenBox } from "lucide-react";
 import { checkUser } from "@/lib/auth-service";
-import { ModeToggle } from "./modeToggle";
 
 const Header = async () => {
   await checkUser();

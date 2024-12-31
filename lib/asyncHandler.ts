@@ -1,6 +1,7 @@
-type AsyncFunc<T extends any[], R> = (...args: T) => Promise<R>;
+type ValidArg = string | number | boolean | object | null | undefined;
+type AsyncFunc<T extends ValidArg[], R> = (...args: T) => Promise<R>;
 
-export const asyncHandler = <T extends any[], R>(
+export const asyncHandler = <T extends ValidArg[], R>(
   asyncFunc: AsyncFunc<T, R>
 ) => {
   return async (...args: T): Promise<R> => {

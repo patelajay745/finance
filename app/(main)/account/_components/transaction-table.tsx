@@ -20,7 +20,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { format } from "date-fns";
 import { categoryColors } from "@/data/categories";
 import { Badge } from "@/components/ui/badge";
-import { Clock, RefreshCcw, RefreshCw } from "lucide-react";
+import { Clock, RefreshCw } from "lucide-react";
 
 interface TransactionProps {
   transactions: Transaction[];
@@ -36,7 +36,7 @@ const RECURRING_INTERVALS = {
 const TransactionTable: React.FC<TransactionProps> = ({ transactions }) => {
   const filteredAndSortedTransactions = transactions;
 
-  const handleSort = (sortby: string) => {};
+  const handleSort = (_sortby: string) => {};
 
   return (
     <div className="space-y-4">
