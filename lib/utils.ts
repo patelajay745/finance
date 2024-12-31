@@ -5,6 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+// @ts-ignore
 export const serializeTransaction = (obj: any) => {
   const serialized = { ...obj };
 

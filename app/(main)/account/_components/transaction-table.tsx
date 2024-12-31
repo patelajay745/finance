@@ -36,7 +36,9 @@ const RECURRING_INTERVALS = {
 const TransactionTable: React.FC<TransactionProps> = ({ transactions }) => {
   const filteredAndSortedTransactions = transactions;
 
-  const handleSort = (_sortby: string) => {};
+  const handleSort = (sortby: string) => {
+    sortby = sortby;
+  };
 
   return (
     <div className="space-y-4">
