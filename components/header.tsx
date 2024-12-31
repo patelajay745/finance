@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
 import { LayoutDashboard, PenBox } from "lucide-react";
-import { checkUser } from "@/lib/checkUser";
+import { checkUser } from "@/lib/auth-service";
 
 const Header = async () => {
   await checkUser();

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -10,6 +12,9 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { useFetch } from "@/hooks/use-fetch";
+import { updateDefaultAccount } from "@/actions/account";
+import { toast } from "sonner";
 
 type AccountCardProps = {
   account: SerializedAccount;
@@ -18,6 +23,35 @@ type AccountCardProps = {
 const AccountCard: React.FC<AccountCardProps> = ({ account }) => {
   const { name, type, balance, id, isDefault } = account;
 
+  const {
+    loading: updateDefaultloading,
+    fn: updateDefaultFn,
+    data: updatedAccount,
+    error,
+  } = useFetch(updateDefaultAccount);
+
+  const handleDefaultChange = async (event: React.MouseEvent<HTMLElement>) => {
+    event?.preventDefault();
+
+    if (isDefault) {
+      toast.warning("You need atleast 1 default Account");
+      return;
+    }
+    await updateDefaultFn(id);
+  };
+
+  useEffect(() => {
+    if (updatedAccount?.success) {
+      toast.success("Default account updated successfully");
+    }
+  }, [updatedAccount, updateDefaultloading]);
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error.message || "Failed to update default account");
+    }
+  }, [error]);
+
   return (
     <Card className="hover:shadow-md transition-shadow group relative">
       <Link href={`/account/${id}`}>
@@ -25,10 +59,16 @@ const AccountCard: React.FC<AccountCardProps> = ({ account }) => {
           <CardTitle className="text-sm font-medium capitalize">
             {name}
           </CardTitle>
-          <Switch checked={isDefault} />
+          <Switch
+            checked={isDefault}
+            onClick={handleDefaultChange}
+            disabled={updateDefaultloading}
+          />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">${balance}</div>
+          <div className="text-2xl font-bold">
+            ${parseFloat(balance + "").toFixed(2)}
+          </div>
 
           <p className="text-xs text-muted-foreground">
             {type.charAt(0) + type.slice(1).toLowerCase()} Account
