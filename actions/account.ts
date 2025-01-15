@@ -18,7 +18,7 @@ export const updateDefaultAccount = asyncHandler(async (accountId) => {
 
   const account = await db.account.update({
     where: {
-      id: accountId,
+      id: accountId as string,
       userId: user.id,
     },
     data: {
@@ -36,7 +36,7 @@ export const getAccountTransactions = asyncHandler(async (accountId) => {
 
   const account = await db.account.findUnique({
     where: {
-      id: accountId,
+      id: accountId as string,
       userId: user.id,
     },
 
@@ -58,4 +58,24 @@ export const getAccountTransactions = asyncHandler(async (accountId) => {
       serializeTransaction(transaction)
     ),
   };
+});
+
+export const bulkDeleteTransactions = asyncHandler(async (transactionIds) => {
+  const user = await getAuthenicatedUser();
+
+  const transactions = await db.transaction.findMany({
+    where: {
+      id: { in: transactionIds },
+      userId: user.id,
+    },
+  });
+
+  const accountBalanceChanges = transactions.reduce((acc, transaction) => {
+    const change =
+      transaction.type === "EXPENSE" ? transaction.amount : -transaction.amount;
+
+    acc[transaction.accountId] = (acc[transaction.accountId] || 0) + change;
+
+    return acc;
+  }, {});
 });
